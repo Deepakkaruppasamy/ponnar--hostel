@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom smooth transitions */
+body {
+  transition: background 0.5s, color 0.5s;
+}
+
+/* Animated gradient background for the main container */
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradientMove 8s ease-in-out infinite;
+}
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animated decorative blobs */
+.animated-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.3;
+  z-index: 0;
+  animation: blobMove 12s infinite alternate;
+}
+.animated-blob.pink {
+  background: #f472b6;
+  width: 18rem;
+  height: 18rem;
+  top: -4rem;
+  left: -4rem;
+  animation-delay: 0s;
+}
+.animated-blob.indigo {
+  background: #818cf8;
+  width: 24rem;
+  height: 24rem;
+  bottom: -6rem;
+  right: -6rem;
+  animation-delay: 2s;
+}
+@keyframes blobMove {
+  0% { transform: scale(1) translateY(0) translateX(0);}
+  50% { transform: scale(1.2) translateY(30px) translateX(40px);}
+  100% { transform: scale(1) translateY(0) translateX(0);}
+}
+
+/* Card and button hover/active animations */
+.glass-card {
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(24px);
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  border: 1px solid rgba(255,255,255,0.18);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.glass-card:hover {
+  box-shadow: 0 16px 40px 0 rgba(31, 38, 135, 0.25);
+  transform: translateY(-4px) scale(1.01);
+}
+.fancy-btn {
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.10);
+}
+.fancy-btn:hover, .fancy-btn:focus {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 6px 20px 0 rgba(0,0,0,0.18);
+}
+
+/* Section title animation */
+.section-title {
+  animation: fadeInUp 1s cubic-bezier(.23,1.01,.32,1) both;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
